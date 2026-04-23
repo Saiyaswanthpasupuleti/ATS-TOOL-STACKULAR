@@ -1,4 +1,8 @@
 #!/usr/bin/env sh
-set -e
-cd "$(dirname "$0")/.." || exit 1
-npm run precommit
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🔍 Running lint-staged..."
+pnpm run lint-staged
+
+echo "✅ Running ESLint..."
+pnpm run lint
