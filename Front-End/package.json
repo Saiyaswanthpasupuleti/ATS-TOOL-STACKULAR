@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "cd .. && node Front-End/node_modules/husky/bin.js Front-End/.husky"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [

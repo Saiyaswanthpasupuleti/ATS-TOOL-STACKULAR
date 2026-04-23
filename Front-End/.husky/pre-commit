@@ -1,8 +1,9 @@
 #!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+
+cd "$(dirname -- "$0")/../.." || exit 1
 
 echo "🔍 Running lint-staged..."
-pnpm exec lint-staged
+pnpm --prefix Front-End exec lint-staged
 
 echo "✅ Running ESLint..."
-pnpm run lint
+pnpm --prefix Front-End run lint
