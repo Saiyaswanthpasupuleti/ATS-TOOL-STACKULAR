@@ -6,16 +6,16 @@ Internal Applicant Tracking System built with React 19, TypeScript, and Vite. Fo
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Framework | React 19 |
-| Language | TypeScript 6 (strict mode) |
-| Build tool | Vite 8 |
-| Routing | React Router DOM 7 |
-| Styling | Tailwind CSS 4 |
-| Icons | Lucide React |
-| Compiler | React Compiler (babel-plugin-react-compiler) |
-| Linting | ESLint 9 + typescript-eslint |
+| Layer      | Technology                                   |
+| ---------- | -------------------------------------------- |
+| Framework  | React 19                                     |
+| Language   | TypeScript 6 (strict mode)                   |
+| Build tool | Vite 8                                       |
+| Routing    | React Router DOM 7                           |
+| Styling    | Tailwind CSS 4                               |
+| Icons      | Lucide React                                 |
+| Compiler   | React Compiler (babel-plugin-react-compiler) |
+| Linting    | ESLint 9 + typescript-eslint                 |
 
 ---
 
@@ -23,19 +23,19 @@ Internal Applicant Tracking System built with React 19, TypeScript, and Vite. Fo
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Start dev server (http://localhost:5173)
-npm run dev
+pnpm run dev
 
 # Type-check + production build
-npm run build
+pnpm run build
 
 # Preview production build
-npm run preview
+pnpm run preview
 
 # Lint
-npm run lint
+pnpm run lint
 ```
 
 ---
@@ -76,14 +76,14 @@ Front-End/
 
 ## Routing
 
-| Path | Component | Access |
-|---|---|---|
-| `/login` | `LoginPage` | Public |
-| `/recruitment` | Redirects to `/recruitment/job-posting` | `recruitment` role |
-| `/recruitment/job-posting` | `JobPostingPage` | `recruitment` role |
-| `/recruitment/dashboard` | `DashboardPage` | `recruitment` role |
-| `/interviewer/dashboard` | `InterviewerDashboard` | `interviewer` role |
-| `*` | Redirects to `/login` | — |
+| Path                       | Component                               | Access             |
+| -------------------------- | --------------------------------------- | ------------------ |
+| `/login`                   | `LoginPage`                             | Public             |
+| `/recruitment`             | Redirects to `/recruitment/job-posting` | `recruitment` role |
+| `/recruitment/job-posting` | `JobPostingPage`                        | `recruitment` role |
+| `/recruitment/dashboard`   | `DashboardPage`                         | `recruitment` role |
+| `/interviewer/dashboard`   | `InterviewerDashboard`                  | `interviewer` role |
+| `*`                        | Redirects to `/login`                   | —                  |
 
 All `/recruitment/*` and `/interviewer/*` routes are wrapped in `ProtectedRoute`, which checks the authenticated user's role and redirects to `/login` if unauthenticated or unauthorised.
 
@@ -95,15 +95,15 @@ Auth is client-side only — no backend. User credentials are stored in `AuthCon
 
 ### User Accounts
 
-| Username | Role |
-|---|---|
-| Amulya | Recruitment |
+| Username   | Role        |
+| ---------- | ----------- |
+| Amulya     | Recruitment |
 | Sai Kalyan | Recruitment |
-| Venkat | Recruitment |
-| Karthik | Interviewer |
-| Fardeen | Interviewer |
-| Jay | Interviewer |
-| Nadem | Interviewer |
+| Venkat     | Recruitment |
+| Karthik    | Interviewer |
+| Fardeen    | Interviewer |
+| Jay        | Interviewer |
+| Nadem      | Interviewer |
 
 Passwords are defined in `src/context/AuthContext.tsx`.
 
@@ -123,13 +123,13 @@ Clicking outside the login card collapses it back to the panel picker and clears
 
 Triggered on successful authentication. No animation libraries — pure CSS transitions and keyframes.
 
-| Time | Event |
-|---|---|
-| 0ms | Card fades and scales out (`card-collapse` keyframe) |
-| 80ms | Stackular logo lifts from the header and flies to viewport center (spring easing) |
-| 900ms | Time-of-day greeting appears below the logo — "Good morning/afternoon/evening, {username} 😊" |
-| 2300ms | Greeting fades out; logo shrinks and flies to the top-left corner (sidebar logo position) |
-| 2980ms | `navigate()` fires to the dashboard route |
+| Time   | Event                                                                                         |
+| ------ | --------------------------------------------------------------------------------------------- |
+| 0ms    | Card fades and scales out (`card-collapse` keyframe)                                          |
+| 80ms   | Stackular logo lifts from the header and flies to viewport center (spring easing)             |
+| 900ms  | Time-of-day greeting appears below the logo — "Good morning/afternoon/evening, {username} 😊" |
+| 2300ms | Greeting fades out; logo shrinks and flies to the top-left corner (sidebar logo position)     |
+| 2980ms | `navigate()` fires to the dashboard route                                                     |
 
 Keyframes are defined in `src/index.css`: `card-collapse`, `greeting-in`, `greeting-out`.
 
@@ -137,17 +137,17 @@ Keyframes are defined in `src/index.css`: `card-collapse`, `greeting-in`, `greet
 
 ## Design System
 
-| Token | Value | Usage |
-|---|---|---|
-| `--color-bg` | `#0c0c0c` | Page background |
-| `--color-surface` | `#161719` | Cards, panels |
-| `--color-surface-2` | `#1a1d20` | Inputs, toggle bars |
-| `--color-border` | `#37373f` | Borders, dividers |
-| `--color-accent` | `#1d2ba4` | Primary blue — buttons, active states |
-| `--color-accent-hover` | `#12219e` | Button hover |
-| `--color-text` | `#ffffff` | Primary text |
-| `--color-text-muted` | `#9ca3af` | Secondary / placeholder text |
-| `--font-primary` | Sora, sans-serif | All text |
+| Token                  | Value            | Usage                                 |
+| ---------------------- | ---------------- | ------------------------------------- |
+| `--color-bg`           | `#0c0c0c`        | Page background                       |
+| `--color-surface`      | `#161719`        | Cards, panels                         |
+| `--color-surface-2`    | `#1a1d20`        | Inputs, toggle bars                   |
+| `--color-border`       | `#37373f`        | Borders, dividers                     |
+| `--color-accent`       | `#1d2ba4`        | Primary blue — buttons, active states |
+| `--color-accent-hover` | `#12219e`        | Button hover                          |
+| `--color-text`         | `#ffffff`        | Primary text                          |
+| `--color-text-muted`   | `#9ca3af`        | Secondary / placeholder text          |
+| `--font-primary`       | Sora, sans-serif | All text                              |
 
 ---
 
